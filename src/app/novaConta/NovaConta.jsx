@@ -83,10 +83,10 @@ function NovaConta() {
             {mensagem}
           </div>
         ) : null}
-        {sucesso === "S" ? <Redirect to="/app/login" /> : null}
+        {sucesso === "S" ? <Redirect to="/" /> : null}
 
         <div className="login-links mt-5">
-          <Link to="/app" className="mx-3">
+          <Link to="/" className="mx-3">
             Já tenho uma conta.
           </Link>
         </div>

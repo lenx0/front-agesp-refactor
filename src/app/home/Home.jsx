@@ -15,13 +15,13 @@ export default function Home() {
       <Link to="/app/dashboard">
         <i className="fa fa-chart-line"></i> Dashboard
       </Link>
-      <Link to="/app/users">
+      <Link to="/app/user">
         <i className="fa fa-users"></i> Usuários
       </Link>
       <Link to="/app/vacancies">
         <i className="fa fa-user-tie"></i> Vagas
       </Link>
-      <Link to="/app/login">
+      <Link to="/">
         <i className="fa fa-key" onClick={Logout}></i> Sair
       </Link>
     </nav>
