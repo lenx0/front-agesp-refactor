@@ -1,0 +1,38 @@
+.menu {
+    display: flex;
+    background-color: red;
+}
+
+
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    
+    font-weight: 500;
+    padding: 15px;
+}
+
+.menu a:hover {
+    background: linear-gradient(135deg, #fff9a2 0%, #fff9a2 100%);
+    color: black;
+}
+
+@media(max-width: 768px) {
+    .menu {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .menu a {
+        display: inline;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    .menu {
+        height: 100%;
+        justify-content: space-around;
+    }
+}
