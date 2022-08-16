@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
-import moment from "moment"
+import moment from "moment";
+import "./Dashboard.css";
+import * as React from 'react';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
 
 
 // const headerProps = {
@@ -75,8 +85,8 @@ export default class Vacancies extends Component {
 
   renderForm() {
     return (
-      <div>
-        <h1>Vagas cadastradas</h1>
+      <div className="title-container">
+        <h1>Lista de vagas cadastradas</h1>
       </div>
     );
   }
@@ -96,8 +106,8 @@ export default class Vacancies extends Component {
     return (
       <div className="scrollbar scrollbar-lady-lips">
         <div className="force-overflow">
-      <table className="table table-striped table-bordered">
-        <thead>
+      <table className="table">
+        <thead className="thead-dark">
           <tr>
             <th>Ações</th>
             <th>Abertura</th>

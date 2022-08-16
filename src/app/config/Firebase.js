@@ -2,12 +2,12 @@ import firebase from 'firebase/app';
 //import firebase from 'firebase';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC7gLhvrBxU8Q6fQ8VU2a9ve3EwSw_jJrc",
-    authDomain: "agmanager-d266e.firebaseapp.com",
-    projectId: "agmanager-d266e",
-    storageBucket: "agmanager-d266e.appspot.com",
-    messagingSenderId: "189115312248",
-    appId: "1:189115312248:web:208761a04223d246bd658d"
+  apiKey: "AIzaSyCahbYbVRCX8orm04_q1iSwesww5mWqA3c",
+  authDomain: "aggesp-7262b.firebaseapp.com",
+  projectId: "aggesp-7262b",
+  storageBucket: "aggesp-7262b.appspot.com",
+  messagingSenderId: "550560981636",
+  appId: "1:550560981636:web:f5cb4a2fe1aa9fea1e58d1"
   };
   
   // Initialize Firebase

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 import "./Vacancies.css";
 import moment from "moment";
@@ -87,7 +87,26 @@ export default class Vacancies extends Component {
     return (
       <div className="form">
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
+            <div className="form-group">
+              <label>Status da vaga</label>
+              <select
+                type="text"
+                className="form-control"
+                name="status"
+                onChange={(e) => this.updateField(e)}
+              >
+                <option selected>{this.state.requester.status}</option>
+                <option value="Aberta">Aberta</option>
+                <option value="Cancelada">Cancelada</option>
+                <option value="Congelada">Congelada</option>
+                <option value="Fechada">Fechada</option>
+                <option value="Suspensa">Suspensa</option>
+              </select>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Abertura</label>
               <input
@@ -101,7 +120,7 @@ export default class Vacancies extends Component {
               />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Cargo/Função</label>
               <input
@@ -114,7 +133,7 @@ export default class Vacancies extends Component {
               />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Setor</label>
               <select
@@ -148,7 +167,7 @@ export default class Vacancies extends Component {
               </select>
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Gestor</label>
               <input
@@ -160,7 +179,7 @@ export default class Vacancies extends Component {
               />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Responsável</label>
               <input
@@ -172,7 +191,7 @@ export default class Vacancies extends Component {
               />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Motivo</label>
               <select
@@ -190,7 +209,7 @@ export default class Vacancies extends Component {
               </select>
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-3">
             <div className="form-group">
               <label>A ser substituído</label>
               <input
@@ -202,7 +221,7 @@ export default class Vacancies extends Component {
               ></input>
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
               <label>Salário Inicial</label>
               <input
@@ -215,24 +234,20 @@ export default class Vacancies extends Component {
               />
             </div>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-2">
             <div className="form-group">
-              <label>Status da vaga</label>
-              <select
+              <label className="col-form-label-md">Pós experiência</label>
+              <input
                 type="text"
                 className="form-control"
-                name="status"
+                name="postExpSalary"
+                value={this.state.requester.postExpSalary}
                 onChange={(e) => this.updateField(e)}
-              >
-                <option selected>{this.state.requester.status}</option>
-                <option value="Aberta">Aberta</option>
-                <option value="Cancelada">Cancelada</option>
-                <option value="Congelada">Congelada</option>
-                <option value="Fechada">Fechada</option>
-                <option value="Suspensa">Suspensa</option>
-              </select>
+                placeholder="R$00.00"
+              />
             </div>
           </div>
+
           <div className="col-12 col-md-6">
             <div className="form-group">
               <label>Data da Admissão</label>
@@ -241,7 +256,7 @@ export default class Vacancies extends Component {
                 className="form-control"
                 name="admissionDate"
                 onChange={(e) => this.updateField(e)}
-                value={this.state.requester.adminissionDate}
+                value={this.state.requester.admissionDate}
               />
             </div>
           </div>
@@ -315,19 +330,6 @@ export default class Vacancies extends Component {
                 <option value="RH">RH</option>
                 <option value="TI">TI</option>
               </select>
-            </div>
-          </div>
-          <div className="col-12 col-md-6">
-            <div className="form-group">
-              <label>Pós experiência</label>
-              <input
-                type="text"
-                className="form-control"
-                name="postExpSalary"
-                value={this.state.requester.postExpSalary}
-                onChange={(e) => this.updateField(e)}
-                placeholder="R$00.00"
-              />
             </div>
           </div>
           <div className="col-12 col-md-6">
