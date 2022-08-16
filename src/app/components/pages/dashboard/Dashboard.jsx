@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
@@ -6,24 +7,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-useEffect(() => {
-  fetch("https://aggesp-api.altogiro.net/v1/agesp/vacancy/list")
-    .then((resp) => resp.json())
-    .then((resp) => {
-      console.log(resp);
-      setData(resp);
-    });
-}, []);
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 export default function BasicTable() {
+  const [data, setData] = useState();
+  useEffect(() => {
+    fetch("https://aggesp-api.altogiro.net/v1/agesp/vacancy/list")
+      .then((resp) => {
+        console.log(resp);
+        setData(resp);
+      });
+  }, []);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -37,18 +30,16 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {data.map((row) => (
             <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
+              key={row.vacancyDateOpen}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.replacedEmployee}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.requesterName}</TableCell>
+              <TableCell align="right">{row.manager}</TableCell>
+              <TableCell align="right">{row.responsible}</TableCell>
+              <TableCell align="right">{row.hiringReason}</TableCell>
             </TableRow>
           ))}
         </TableBody>
